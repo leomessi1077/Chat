@@ -17,25 +17,25 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      fetchUser();
-    } else {
-      setLoading(false);
-    }
+    const loadUser = async () => {
+      if (token) {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        try {
+          const response = await axios.get('/api/auth/me');
+          setUser(response.data.user);
+        } catch (error) {
+          console.error('Fetch user error:', error);
+          logout();
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setLoading(false);
+      }
+    };
+    loadUser();
   }, [token]);
 
-  const fetchUser = async () => {
-    try {
-      const response = await axios.get('/api/auth/me');
-      setUser(response.data.user);
-    } catch (error) {
-      console.error('Fetch user error:', error);
-      logout();
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const login = async (email, password) => {
     try {

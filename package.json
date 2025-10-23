@@ -11,7 +11,8 @@
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "setup": "node setup.js",
     "install-all": "npm install && cd frontend && npm install && cd ..",
-    "vercel-build": "npm install && cd frontend && npm install && npm run build"
+    "vercel-build": "cd frontend && npm install && npm run build",
+    "railway-build": "npm install"
   },
   "keywords": ["chat", "mern", "socket.io", "react"],
   "author": "",
