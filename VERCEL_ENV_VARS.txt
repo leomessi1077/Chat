@@ -1,0 +1,21 @@
+VERCEL ENVIRONMENT VARIABLES TO SET
+=====================================
+
+Go to: https://vercel.com/manish-yadavs-projects-8d2de205/chat/settings/environment-variables
+
+Add these TWO environment variables:
+
+1. REACT_APP_API_URL
+   Value: https://chat-production-75fa.up.railway.app
+
+2. REACT_APP_SOCKET_URL
+   Value: https://chat-production-75fa.up.railway.app
+
+After adding both:
+- Click "Save"
+- Go to Deployments tab
+- Click "..." on latest deployment
+- Click "Redeploy"
+
+This will make your Vercel frontend connect to your Railway backend!
+

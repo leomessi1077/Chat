@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import { useSocket } from '../context/SocketContext';
 import { FaPaperPlane, FaCircle } from 'react-icons/fa';
 import { BsEmojiSmile } from 'react-icons/bs';
